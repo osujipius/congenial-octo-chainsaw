@@ -5,25 +5,17 @@ import {
   defineRecipe,
 } from "@chakra-ui/react";
 
-const buttonRecipe = defineRecipe({
-  variants: {
-    size: {
-      xl: {
-        fontSize: "lg",
-        px: 6,
-        py: 3,
-      },
-    },
-    variant: {
-      solid: {
-        bg: "red",
-        color: "white",
-        _hover: {
-          bg: "blue",
-          color: "red",
-        },
-      },
-    },
+const headingRecipe = defineRecipe({
+  base: {
+    fontFamily: "Zen Dots",
+    color: "white",
+  },
+});
+
+const textRecipe = defineRecipe({
+  base: {
+    fontFamily: "Space Grotesk",
+    color: "white",
   },
 });
 
@@ -31,15 +23,21 @@ const customConfig = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: { value: "#0FEE0F" },
-        secondary: { value: "#EE0F0F" },
+        white: { value: "#FFFF" },
+        black: { value: "#000" },
+        ash: { value: "#333436" },
+        headerHover: { value: "#F1DA00" },
+        headerBottomBorder: { value: "#D50B13" },
       },
       fonts: {
-        body: { value: "system-ui, sans-serif" },
+        body: { value: "Space Grotesk, sans-serif" },
+        heading: { value: "Zen Dots, sans-serif" },
+        navigation: { value: "Michroma, sans-serif" },
       },
     },
     recipes: {
-      button: buttonRecipe,
+      heading: headingRecipe,
+      text: textRecipe,
     },
   },
   globalCss: {

@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import CHeader from "@/shared/ui/components/header";
 
 export default function PublicLayout({
   children,
@@ -7,7 +7,7 @@ export default function PublicLayout({
 }) {
   return (
     <section>
-      <Box width="full" height={["64px", null, "80px"]} bg="grey"></Box>
+      <CHeader />
       {children}
     </section>
   );
