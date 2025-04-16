@@ -1,12 +1,3 @@
-export const containerMaxWidth = [
-  "full",
-  "full",
-  null,
-  null,
-  "1051px",
-  "1051px",
-];
-
 export const CollectionsData: any = [
   {
     name: "Critters",

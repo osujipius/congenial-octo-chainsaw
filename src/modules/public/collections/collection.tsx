@@ -1,6 +1,6 @@
 "use client";
 
-import { CollectionsData, containerMaxWidth } from "@/shared/lib/constants";
+import { CollectionsData } from "@/shared/lib/constants";
 import CImage from "@/shared/ui/base/image";
 import {
   Box,
@@ -47,7 +47,7 @@ export default function Collection({ collection }: Props) {
       backgroundColor="rgba(0, 0, 0, 0.7)"
       backgroundBlendMode="multiply">
       <Container
-        maxWidth={containerMaxWidth}
+        maxWidth={["full", "full", null, null, "1051px", "1051px"]}
         paddingTop={["50px", null, "50px"]}>
         <Link href="/collections">
           <Icon

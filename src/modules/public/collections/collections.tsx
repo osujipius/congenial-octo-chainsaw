@@ -1,4 +1,4 @@
-import { CollectionsData, containerMaxWidth } from "@/shared/lib/constants";
+import { CollectionsData } from "@/shared/lib/constants";
 import CImage from "@/shared/ui/base/image";
 import { Box, Container, Heading, Text, VStack, Wrap } from "@chakra-ui/react";
 import Link from "next/link";
@@ -15,8 +15,7 @@ export default function Collections() {
       backgroundColor="rgba(0, 0, 0, 0.7)"
       backgroundBlendMode="multiply">
       <Container
-        maxWidth={containerMaxWidth}
-        height={["auto", null, "578px"]}
+        maxWidth={["full", "full", null, null, "1051px", "1051px"]}
         paddingTop={["50px", null, "70px"]}>
         <VStack gap="50px">
           <Heading

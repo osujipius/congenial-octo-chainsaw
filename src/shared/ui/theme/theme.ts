@@ -28,6 +28,10 @@ const customConfig = defineConfig({
         ash: { value: "#333436" },
         headerHover: { value: "#F1DA00" },
         headerBottomBorder: { value: "#D50B13" },
+        grey1: { value: "#5F6163" },
+        grey2: { value: "#D8D8D8" },
+        grey3: { value: "#A1A1A1" },
+        timeline: { value: "#2E374A" },
       },
       fonts: {
         body: { value: "Space Grotesk, sans-serif" },
