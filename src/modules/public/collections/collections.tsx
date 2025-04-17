@@ -7,13 +7,15 @@ export default function Collections() {
   return (
     <Box
       width="100%"
-      height={["auto", "140vh", "120vh", null, "950px"]}
+      // height={["auto", "140vh", "120vh", null, "950px"]}
+      minHeight={["calc(100vh - 64px)", null, "calc(100vh - 80px)"]}
       backgroundImage="url('/images/alt-bg.png')"
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundColor="rgba(0, 0, 0, 0.7)"
-      backgroundBlendMode="multiply">
+      backgroundBlendMode="multiply"
+      backgroundAttachment="fixed">
       <Container
         maxWidth={["full", "full", null, null, "1051px", "1051px"]}
         paddingTop={["50px", null, "70px"]}>
@@ -35,7 +37,7 @@ export default function Collections() {
                 key={collection.name}
                 name={collection.name}
                 description={collection.overview}
-                image={collection.image_sm}
+                image={collection.image_lg}
               />
             ))}
           </Wrap>

@@ -1,5 +1,3 @@
-"use client";
-
 import { CollectionsData } from "@/shared/lib/constants";
 import CImage from "@/shared/ui/base/image";
 import {
@@ -38,14 +36,14 @@ export default function Collection({ collection }: Props) {
   return (
     <Box
       width="100%"
-      height={["auto", "120vh", "100vh", "120vh", null, "100vh"]}
       minHeight="100vh"
       backgroundImage="url('/images/alt-bg.png')"
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundColor="rgba(0, 0, 0, 0.7)"
-      backgroundBlendMode="multiply">
+      backgroundBlendMode="multiply"
+      backgroundAttachment="fixed">
       <Container
         maxWidth={["full", "full", null, null, "1051px", "1051px"]}
         paddingTop={["50px", null, "50px"]}>
@@ -72,19 +70,12 @@ export default function Collection({ collection }: Props) {
             {name}
           </Heading>
           <CImage
-            display={["none", null, "block"]}
             imageUrl={image_lg}
-            width={["100%", null, "750px", "846px"]}
-            height={["278px", null, "300px", "337px"]}
-            objectFit="cover"
+            width={["100%", "500px", "750px", "846px"]}
+            height={["170px", "250px", "300px", "337px"]}
+            objectFit="contain"
           />
-          <CImage
-            display={["block", null, "none"]}
-            imageUrl={image_lg}
-            width={["100%", null, "750px", "846px"]}
-            height={["170px", null, "300px", "337px"]}
-            objectFit="fill"
-          />
+
           <Text
             width={["full", null, "711px"]}
             fontSize={["14px", null, "17px"]}
@@ -97,14 +88,15 @@ export default function Collection({ collection }: Props) {
             width={["full", null, "712px"]}
             height={["auto", null, "100px"]}
             gap="10px"
-            justifyContent="space-between">
+            flexWrap={["wrap", null, "nowrap"]}
+            justifyContent={["center", null, null, "space-between"]}>
             {otherCollections.slice(0, 3).map((item: any) => (
               <Link
                 href={`/collections/${item.name.toLowerCase()}`}
                 key={item.name}>
                 <CImage
                   key={item.name}
-                  imageUrl={item.image_sm}
+                  imageUrl={item.image_lg}
                   width={["202px", null, "232px"]}
                   height={["87px", null, "100px"]}
                 />

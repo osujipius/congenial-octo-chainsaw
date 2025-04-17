@@ -169,6 +169,7 @@ export default function Missions() {
                     letterSpacing="4px">
                     01/
                     <Heading
+                      as="span"
                       display="inline-block"
                       fontSize={["14px", null, "20px"]}
                       fontWeight="400"

@@ -31,6 +31,7 @@ export default function CHeader({}: Props) {
       justifyContent={["space-between", null, null, null, "initial"]}
       borderBottom={["5px solid", null, "none"]}
       borderBottomColor="headerBottomBorder"
+      overflowX="hidden"
       _before={{
         content: '""',
         display: ["none", null, "block"],

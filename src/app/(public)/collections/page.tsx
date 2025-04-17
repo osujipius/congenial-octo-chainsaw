@@ -1,3 +1,5 @@
+"use client";
+
 import Collections from "@/modules/public/collections/collections";
 
 export default function CollectionsPage() {
