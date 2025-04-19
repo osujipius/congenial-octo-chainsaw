@@ -24,6 +24,7 @@ const navLinks_2 = [
 export default function CHeader({}: Props) {
   return (
     <HStack
+      zIndex={100}
       position="relative"
       width="full"
       height={["64px", null, "80px"]}

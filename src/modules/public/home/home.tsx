@@ -1,5 +1,7 @@
+import { HomeParent } from "@/shared/ui/components/HomeParent";
+
 type Props = {};
 
 export default function Home({}: Props) {
-  return <div>Home</div>;
+  return <HomeParent>Home</HomeParent>;
 }
