@@ -1,0 +1,824 @@
+.homeParent {
+	width: 100%;
+	position: relative;
+	--bg-width: 361px; /* Default for mobile */
+	--nav-height: 64px; /* Default for mobile */
+	z-index: 1;
+	--offset: 0px;
+}
+
+.homeParent {
+	min-height: calc(100vh - var(--offset));
+	min-height: calc(100vh - 94px);
+}
+
+.imageComponentsParent {
+	top: calc(var(--offset) * -1);
+}
+
+.imageComponentsParent {
+	width: 100%;
+	min-height: inherit;
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.imageComponentsWrapper {
+	width: 100%;
+	position: relative;
+	overflow: visible;
+	aspect-ratio: 428 / 892;
+	height: auto;
+	transform: scale(1) translateY(0);
+}
+
+.imageComponentsWrapperCon {
+	width: var(--bg-width);
+	position: absolute;
+	overflow: visible;
+	aspect-ratio: 428 / 892; /* Mobile aspect ratio */
+	height: auto;
+	z-index: 1;
+}
+
+.imageComponentsWrapperConClone.imageComponentsWrapperCon {
+	z-index: 2;
+}
+
+.bg {
+	width: var(--bg-width);
+	aspect-ratio: 428 / 892; /* Mobile aspect ratio */
+	height: auto;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.cLSParent {
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	transform: translateX(calc(-50% - 4px));
+	z-index: 2;
+	--cls-width: 280px; /* Smaller width for mobile */
+	width: calc(var(--cls-width) + 3px);
+	aspect-ratio: 788 / 79;
+	height: auto;
+}
+
+.cLSParentOriginal {
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	width: calc(var(--cls-width) + 3px);
+	aspect-ratio: 788 / 79;
+	height: auto;
+	visibility: visible;
+	opacity: 1;
+}
+
+.cLSParentClone {
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+	width: calc(var(--cls-width) + 3px);
+	aspect-ratio: 788 / 79;
+	height: auto;
+	transform: scale(1.1) translateY(80px);
+	visibility: hidden;
+	opacity: 0;
+}
+
+.crazyLabsLogo {
+	height: 48px; /* Smaller for mobile */
+	aspect-ratio: 142 / 123;
+	width: auto;
+	position: absolute;
+	right: 50%;
+	transform: translateX(calc(50% + 7.5px)) translateY(0px);
+}
+
+.flickerCon,
+.flicker {
+	width: calc(var(--cls-width) + 3px);
+	position: absolute;
+	top: 0px;
+	left: -0.5px;
+	aspect-ratio: 788 / 79;
+	height: auto;
+}
+
+.flickerCon {
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: all 0.15s linear;
+}
+
+.flickerSignage_1 {
+	background-image: url('../../../../../public/images/crazyLabsSign-1.png');
+}
+.flickerSignage_2 {
+	background-image: url('../../../../../public/images/crazyLabsSign-2.png');
+}
+.flickerSignage_3 {
+	background-image: url('../../../../../public/images/crazyLabsSign-3.png');
+}
+.flickerSignage_4 {
+	background-image: url('../../../../../public/images/crazyLabsSign-5.png');
+}
+.flickerSignage_5 {
+	background-image: url('../../../../../public/images/crazyLabsSign-6.png');
+}
+.flickerSignage_6 {
+	background-image: url('../../../../../public/images/crazyLabsSign-7.png');
+}
+.flickerSignage_7 {
+	background-image: url('../../../../../public/images/crazyLabsSign-8.png');
+}
+.flickerSignage_8 {
+	background-image: url('../../../../../public/images/crazyLabsSign-4.png');
+}
+
+.brokenS {
+	position: absolute;
+	transform: translateY(calc(100% - 15px));
+	right: 11px;
+	height: 34px;
+	aspect-ratio: 60.796 / 64.895;
+	width: auto;
+}
+
+.signageParent {
+	top: 0;
+	z-index: 3;
+	width: var(--bg-width);
+	aspect-ratio: 428 / 892; /* Mobile aspect ratio */
+	height: auto;
+	left: 50%;
+	transform: translateX(-50%);
+	visibility: hidden;
+}
+
+/* Modified hover for touch devices */
+.door:hover .overlay {
+	opacity: 1;
+}
+
+.overlay {
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.rafflesParent {
+	transform: translateY(20px) translateX(-150px);
+}
+
+.copsOnlyParent {
+	transform: translateY(20px) translateX(150px);
+}
+
+.rafflesOverlay,
+.copsOnlyOverlay {
+	width: auto;
+	aspect-ratio: 179 / 522;
+	height: 300px; /* Smaller for mobile */
+}
+
+.rafflesSignage,
+.copsOnlySignage {
+	height: 30px; /* Smaller for mobile */
+	aspect-ratio: 68 / 54;
+	width: auto;
+	top: 15px;
+}
+
+.rafflesSignage {
+	transform: rotate(3deg) translateX(5px);
+	top: 20px;
+}
+
+.copsOnlySignage {
+	transform: rotate(-3deg) translateX(-5px);
+	top: 20px;
+}
+
+.lootParent {
+	transform: translateY(15px) translateX(-100px);
+}
+
+.stakingParent {
+	transform: translateY(15px) translateX(100px);
+}
+
+.lootOverlay,
+.stakingOverlay {
+	height: 200px; /* Smaller for mobile */
+	aspect-ratio: 63 / 210.5;
+	width: auto;
+}
+
+.lootSignage,
+.stakingSignage {
+	height: 25px; /* Smaller for mobile */
+	aspect-ratio: 42 / 34;
+	width: auto;
+	top: 10px;
+}
+
+.lootSignage {
+	transform: rotate(3deg) translateX(4px);
+	top: 12px;
+}
+
+.stakingSignage {
+	transform: rotate(-3deg) translateX(-2px);
+	top: 12px;
+}
+
+.arcadeLabParent {
+	transform: translateY(10px) translateX(1px);
+}
+
+.arcadeLabOverlay {
+	height: 100px; /* Smaller for mobile */
+	aspect-ratio: auto;
+	width: auto;
+}
+
+.arcadeLabSignage {
+	height: 10px; /* Smaller for mobile */
+	aspect-ratio: 92 / 14;
+	width: auto;
+	top: -7px;
+}
+
+.contentParent {
+	position: relative;
+}
+
+.doorOpen {
+	width: 120px; /* Smaller for mobile */
+	aspect-ratio: 184 / 122;
+	height: auto;
+	position: absolute;
+	transform: translateX(-150px) translateY(5px);
+	z-index: 10;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out 2s;
+}
+
+.doorOpen:hover {
+	opacity: 1;
+}
+
+.connectWallet {
+	width: 150px; /* Smaller for mobile */
+	aspect-ratio: 196 / 107;
+	height: auto;
+	position: absolute;
+	transform: translateX(150px) translateY(5px);
+	z-index: 10;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out 2s;
+}
+
+.connectWallet:hover {
+	opacity: 1;
+}
+
+@keyframes imageComponentsWrapperFrames {
+	0% {
+		transform: scale(0.9) translateY(-80px);
+	}
+	50% {
+		transform: scale(0.95) translateY(-40px);
+	}
+	100% {
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes imageComponentsWrapperConOriginalFrames {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+	50% {
+		opacity: 0.5;
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes imageComponentsWrapperConCloneFrames {
+	0% {
+		transform: scale(1.1) translateY(80px);
+		visibility: visible;
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.05) translateY(40px);
+		opacity: 0.5;
+		visibility: visible;
+	}
+	100% {
+		transform: scale(1) translateY(0);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.linksParent {
+	--offset-height: 60px;
+	position: relative;
+	/* background: red; */
+	width: 100%;
+	height: calc(100vh - calc(var(--offset-height) * 1));
+	visibility: visible;
+}
+
+.linksWrapper {
+	padding-bottom: 90px;
+	/* gap: 15px; */
+}
+
+.link {
+	position: relative;
+}
+
+.linkImg {
+	width: 250px;
+	aspect-ratio: 289 / 108;
+	height: auto;
+}
+
+/* --------------------------- Media Queries (Mobile-First) ------------------------- */
+
+/* Super Tiny device (base styling above is for 360px and below) */
+/* Styles for phones slightly larger than the smallest */
+@media only screen and (min-width: 361px) {
+	.homeParent {
+		--bg-width: 391px;
+	}
+
+	.cLSParent {
+		top: 67px;
+		transform: translateX(calc(-50% - 4px));
+	}
+}
+
+/* Small phones (iPhone 12 size and similar) */
+@media only screen and (min-width: 391px) {
+	.homeParent {
+		--bg-width: 481px;
+	}
+
+	.cLSParent {
+		--cls-width: 340px;
+		top: 85px;
+		transform: translateX(calc(-50% - 3px));
+	}
+
+	.crazyLabsLogo {
+		height: 55px;
+		transform: translateX(calc(50% + 7.5px)) translateY(0px);
+	}
+
+	.brokenS {
+		position: absolute;
+		transform: translateY(calc(100% - 17px));
+		right: 15px;
+		height: 41px;
+		aspect-ratio: 60.796 / 64.895;
+		width: auto;
+	}
+}
+
+/* Larger phones */
+@media only screen and (min-width: 481px) {
+	.homeParent {
+		--nav-height: 80px;
+		--bg-width: 600px;
+		--offset: 44px;
+		min-height: calc(100vh - var(--offset));
+	}
+
+	.imageComponentsWrapper {
+		transform: scale(1) translateY(0px);
+	}
+
+	.imageComponentsWrapper,
+	.imageComponentsWrapperCon,
+	.bg,
+	.signageParent {
+		aspect-ratio: 744 / 1107;
+	}
+
+	.cLSParent {
+		--cls-width: 400px;
+		top: 107px;
+		transform: translateX(calc(-50% - 9px));
+		z-index: 2;
+	}
+
+	.crazyLabsLogo {
+		height: 70px;
+		transform: translateX(calc(50% + 15px)) translateY(0px);
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 25px));
+		width: 48px;
+		aspect-ratio: 60.796 / 64.895;
+		height: auto;
+		right: 13.5px;
+	}
+
+	.linksParent {
+		/* background: red; */
+		--offset-height: 80px;
+		height: calc(100vh - calc(var(--offset-height) * 1));
+	}
+}
+
+/* Small tablets */
+@media only screen and (min-width: 600px) {
+	.homeParent {
+		--bg-width: 769px;
+		--offset: 56px;
+	}
+
+	.cLSParent {
+		--cls-width: 500px;
+		top: 137px;
+		transform: translateX(calc(-50% - 9px));
+		z-index: 2;
+	}
+
+	.crazyLabsLogo {
+		height: 90px;
+		transform: translateX(calc(50% + 15px)) translateY(0px);
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 28px));
+		width: 60px;
+		aspect-ratio: 60.796 / 64.895;
+		height: auto;
+		right: 19.5px;
+	}
+}
+
+/* Medium tablets */
+@media only screen and (min-width: 769px) {
+	.homeParent {
+		--bg-width: 835px;
+		/* min-height: unset; */
+		--offset: 62px;
+	}
+
+	.cLSParent {
+		--cls-width: 570px;
+		top: 148px;
+		transform: translateX(calc(-50% - 9px));
+		z-index: 2;
+	}
+
+	.crazyLabsLogo {
+		height: 100px;
+		transform: translateX(calc(50% + 18px)) translateY(0px);
+	}
+
+	.brokenS {
+		width: 65px;
+		right: 22.5px;
+	}
+}
+
+/* Samsung Galaxy S8+ landscape */
+@media only screen and (min-width: 740px) and (max-width: 834px) and (orientation: landscape) {
+	.homeParent {
+		--offset: 0;
+	}
+
+	.imageComponentsWrapper,
+	.imageComponentsWrapperCon,
+	.bg,
+	.signageParent {
+		aspect-ratio: 1728 / 1113;
+	}
+
+	.cLSParent {
+		--cls-width: 415px;
+		transform: translateX(calc(-50% - 6px));
+		top: 95px;
+		z-index: 2;
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 22px));
+		width: 50.796px;
+		aspect-ratio: 60.796 / 64.895;
+		height: auto;
+		right: 14.5px;
+	}
+
+	.crazyLabsLogo {
+		height: 65px;
+		transform: translateX(calc(50% + 10px)) translateY(0px);
+	}
+
+	.door {
+		display: none;
+	}
+
+	.linksParent {
+		--offset-height: 58px;
+		height: calc(100vh + calc(var(--offset-height) * 2));
+	}
+
+	.linksWrapper {
+		padding-bottom: 90px;
+	}
+
+	.link {
+		position: relative;
+	}
+
+	.linkImg {
+		width: 250px;
+		aspect-ratio: 289 / 108;
+		height: auto;
+	}
+}
+
+/* Large tablets and small desktops */
+@media only screen and (min-width: 835px) and (max-width: 1024px) {
+	.homeParent {
+		--bg-width: 1200px;
+		--offset: 88px;
+	}
+
+	.imageComponentsWrapper {
+		transform: scale(1) translateY(0) !important;
+	}
+
+	.cLSParent {
+		--cls-width: 720px;
+		transform: translateX(calc(-50% - 2px));
+		top: 215px;
+		z-index: 2;
+	}
+
+	.crazyLabsLogo {
+		height: 130px;
+		transform: translateX(calc(50% + 15px)) translateY(0px);
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 35px));
+		width: 80.796px;
+		right: 30.5px;
+	}
+}
+
+/* iPad Mini landscape */
+@media only screen and (min-width: 835px) and (max-width: 1024px) and (orientation: landscape) {
+	.homeParent {
+		min-height: calc(100vh - 80px);
+		--bg-width: 1100px;
+		--offset-height: 80px;
+		--offset: 0px;
+	}
+
+	.imageComponentsWrapper,
+	.imageComponentsWrapperCon,
+	.bg,
+	.signageParent {
+		aspect-ratio: 1133 / 730;
+		transform: scale(1) translateY(0px) !important;
+	}
+
+	.cLSParent {
+		--cls-width: 605px;
+		transform: translateX(calc(-50% - 12px));
+		top: 135px;
+		z-index: 2;
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 33px));
+		width: 70.796px;
+		right: 20.5px;
+	}
+
+	.crazyLabsLogo {
+		height: 95px;
+		transform: translateX(calc(50% + 15px)) translateY(0px);
+	}
+
+	.door {
+		display: none;
+	}
+
+	.linksParent {
+		--offset-height: 80px;
+		height: calc(100vh - calc(var(--offset-height) * 1));
+	}
+}
+
+/* Desktops and larger tablets */
+@media only screen and (min-width: 1025px) {
+	.homeParent {
+		min-height: calc(100vh);
+		--bg-width: 1920px;
+		--offset: 86px;
+	}
+
+	.imageComponentsWrapper,
+	.imageComponentsWrapperCon,
+	.bg,
+	.signageParent {
+		aspect-ratio: 1733 / 1117;
+	}
+
+	.signageParent {
+		visibility: visible;
+	}
+
+	.imageComponentsWrapper {
+		transform: scale(0.9) translateY(-80px);
+		animation: imageComponentsWrapperFrames 3s linear 5s forwards;
+	}
+
+	.cLSParent {
+		--cls-width: 850px;
+		top: 205px;
+		transform: translateX(calc(-50% - 13.5px));
+		z-index: 2;
+		width: calc(var(--cls-width) + 3px);
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 38px));
+		width: initial;
+		height: initial;
+		right: 34.5px;
+	}
+
+	.crazyLabsLogo {
+		height: 130px;
+		transform: translateX(calc(50% + 27px)) translateY(0px);
+	}
+
+	.cLSParentOriginal {
+		animation: imageComponentsWrapperConOriginalFrames 3s linear 5s forwards;
+	}
+
+	.cLSParentClone {
+		animation: imageComponentsWrapperConCloneFrames 3s linear 5s forwards;
+	}
+
+	/* Desktop-specific positioning */
+	.rafflesParent {
+		transform: translateY(40px) translateX(-380px);
+	}
+
+	.copsOnlyParent {
+		transform: translateY(40px) translateX(380px);
+	}
+
+	.rafflesOverlay,
+	.copsOnlyOverlay {
+		height: 535px;
+	}
+
+	.rafflesSignage,
+	.copsOnlySignage {
+		height: 54px;
+		top: 28px;
+	}
+
+	.rafflesSignage {
+		transform: rotate(3deg) translateX(10px);
+	}
+
+	.copsOnlySignage {
+		transform: rotate(-3deg) translateX(-10px);
+	}
+
+	.lootParent {
+		transform: translateY(25px) translateX(-222px);
+	}
+
+	.stakingParent {
+		transform: translateY(23px) translateX(218px);
+	}
+
+	.lootOverlay,
+	.stakingOverlay {
+		height: 308px;
+	}
+
+	.lootSignage,
+	.stakingSignage {
+		height: 34px;
+		top: 15px;
+	}
+
+	.lootSignage {
+		transform: rotate(3deg) translateX(8px);
+		top: 18px;
+	}
+
+	.stakingSignage {
+		transform: rotate(-3deg) translateX(-4px);
+		top: 19px;
+	}
+
+	.arcadeLabParent {
+		transform: translateY(18px) translateX(1px);
+	}
+
+	.arcadeLabOverlay {
+		height: 138px;
+	}
+
+	.arcadeLabSignage {
+		height: 14px;
+		top: -10px;
+	}
+
+	.doorOpen {
+		width: 166.3px;
+		transform: translateX(-675px) translateY(5px);
+	}
+
+	.connectWallet {
+		width: 220px;
+		transform: translateX(707px) translateY(5px);
+	}
+
+	.linksParent {
+		visibility: hidden;
+	}
+}
+
+/* Special cases for specific hover support */
+@media (hover: hover) {
+	.signageParent {
+		visibility: visible;
+	}
+
+	.door:hover .overlay {
+		opacity: 1;
+	}
+
+	.doorOpen,
+	.connectWallet {
+		cursor: pointer;
+	}
+
+	.doorOpen:hover {
+		opacity: 1;
+	}
+
+	.connectWallet:hover {
+		opacity: 1;
+	}
+
+	.linksParent {
+		visibility: hidden;
+	}
+}
+
+/* For touch devices */
+@media (hover: none) {
+	/* Add touch-specific interactions if needed */
+	.signageParent {
+		visibility: hidden;
+	}
+
+	.door:active .overlay {
+		opacity: 1;
+	}
+
+	.doorOpen:active {
+		opacity: 1;
+	}
+
+	.connectWallet:active {
+		opacity: 1;
+	}
+
+	.linksParent {
+		visibility: visible;
+	}
+}
