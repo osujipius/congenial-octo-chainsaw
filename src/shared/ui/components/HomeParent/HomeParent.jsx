@@ -1,35 +1,61 @@
+/**
+ * HomeParent.jsx
+ *
+ * @description A responsive landing page component with an interactive arcade-themed interface.
+ * Features a central display with multiple "doors" leading to different sections of the application,
+ * animated signage, and responsive layouts for various device sizes.
+ *
+ * @requires React hooks, Next.js components, custom responsive hooks, shared styles, and multiple image assets
+ */
+
 'use client'
 
-import { useResponsiveState } from '@/shared/hooks'
-import { Shared as s } from '@/shared/styles'
-import { cf } from '@/shared/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
-import arcadeLab from '../../../../../public/images/center-door-label.png'
-import homeBG from '../../../../../public/images/homeBG.png'
-import homeBGiPadMiniHorizontal from '../../../../../public/images/homeBGiPadMiniHorizontal.png'
-import homeBGiPadMiniVertical from '../../../../../public/images/homeBGiPadMiniVertical.png'
-import homeBGiPhone14Vertical from '../../../../../public/images/homeBGiPhone14Vertical.png'
-import raffles from '../../../../../public/images/left-door-label-1.png'
-import loot from '../../../../../public/images/left-door-label-2.png'
-import copsOnly from '../../../../../public/images/right-door-label-1.png'
-import staking from '../../../../../public/images/right-door-label-2.png'
-import arcadeLabHover from '../../../../../public/svg/arcadeLabOverlay.svg'
-import brokenS from '../../../../../public/svg/brokenS.svg'
-import connectWallet from '../../../../../public/svg/connectWallet.svg'
-import collectionLink from '../../../../../public/svg/collectionLink.svg'
-import missionsLink from '../../../../../public/svg/missionsLink.svg'
-import rafflesLink from '../../../../../public/svg/rafflesLink.svg'
-import stakingLink from '../../../../../public/svg/stakingLink.svg'
-import copsOnlyHover from '../../../../../public/svg/copsOnlyOverlay.svg'
-import crazyLabsLogo from '../../../../../public/svg/crazyLabsLogo.svg'
-import doorOpen from '../../../../../public/svg/doorOpen.svg'
-import lootHover from '../../../../../public/svg/lootOverlay.svg'
-import rafflesHover from '../../../../../public/svg/rafflesOverlay.svg'
-import stakingHover from '../../../../../public/svg/stakingOverlay.svg'
-import h from './HomeParentRewritten.module.css'
+import { useResponsiveState } from '@/shared/hooks';
+import { Shared as s } from '@/shared/styles';
+import { cf } from '@/shared/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import arcadeLab from '../../../../../public/images/center-door-label.png';
+import homeBG from '../../../../../public/images/homeBG.png';
+import homeBGiPadMiniHorizontal from '../../../../../public/images/homeBGiPadMiniHorizontal.png';
+import homeBGiPadMiniVertical from '../../../../../public/images/homeBGiPadMiniVertical.png';
+import homeBGiPhone14Vertical from '../../../../../public/images/homeBGiPhone14Vertical.png';
+import raffles from '../../../../../public/images/left-door-label-1.png';
+import loot from '../../../../../public/images/left-door-label-2.png';
+import copsOnly from '../../../../../public/images/right-door-label-1.png';
+import staking from '../../../../../public/images/right-door-label-2.png';
+import arcadeLabHover from '../../../../../public/svg/arcadeLabOverlay.svg';
+import brokenS from '../../../../../public/svg/brokenS.svg';
+import collectionLink from '../../../../../public/svg/collectionLink.svg';
+import connectWallet from '../../../../../public/svg/connectWallet.svg';
+import copsOnlyHover from '../../../../../public/svg/copsOnlyOverlay.svg';
+import crazyLabsLogo from '../../../../../public/svg/crazyLabsLogo.svg';
+import doorOpen from '../../../../../public/svg/doorOpen.svg';
+import lootHover from '../../../../../public/svg/lootOverlay.svg';
+import missionsLink from '../../../../../public/svg/missionsLink.svg';
+import rafflesLink from '../../../../../public/svg/rafflesLink.svg';
+import rafflesHover from '../../../../../public/svg/rafflesOverlay.svg';
+import stakingLink from '../../../../../public/svg/stakingLink.svg';
+import stakingHover from '../../../../../public/svg/stakingOverlay.svg';
+import h from './HomeParentRewritten.module.css';
 
+/**
+ * Door Component
+ *
+ * @description A reusable component that creates interactive doorways to different sections of the application.
+ * Each door contains a link, signage image, and an overlay that appears on hover.
+ *
+ * @param {Object} props - Component props
+ * @param {string} props.label - Accessibility label for the door (default: 'door sign')
+ * @param {StaticImageData} props.signage - Image for the door label
+ * @param {StaticImageData} props.overlay - Hover effect image
+ * @param {string} props.signageClass - Additional CSS classes for the signage image
+ * @param {string} props.overlayClass - Additional CSS classes for the overlay image
+ * @param {string} props.parentClass - Additional CSS classes for the door container
+ * @param {string} props.link - Navigation path for the door (default: '/')
+ * @returns {JSX.Element} - Door component with signage and overlay
+ */
 function Door({
 	label = 'door sign',
 	signage,
@@ -65,10 +91,20 @@ function Door({
 	)
 }
 
+/**
+ * CrazyLabsSignage Component
+ *
+ * @description Creates the animated "Crazy Labs" signage with a flickering effect.
+ * The component randomly cycles through different background images to create
+ * a neon light flickering effect. Includes original and clone elements for animation effects.
+ *
+ * @returns {JSX.Element} - Animated signage component with flickering effect
+ */
 function CrazyLabsSignage() {
 	const [flickerBGClass, setFlickerBGClass] = useState('flickerSignage_1')
 	const isMounted = useRef(null)
 
+	// Array of CSS classes for different flicker states
 	const FLICKER_STATES_BG = [
 		'flickerSignage_1',
 		'flickerSignage_2',
@@ -80,6 +116,7 @@ function CrazyLabsSignage() {
 		'flickerSignage_8',
 	]
 
+	// Set up the flicker effect with random timing
 	useEffect(() => {
 		let timeoutId
 
@@ -133,6 +170,19 @@ function CrazyLabsSignage() {
 	)
 }
 
+/**
+ * MobileLink Component
+ *
+ * @description A simple component that creates mobile-friendly navigation links.
+ * These links are displayed at the bottom of the screen on smaller devices,
+ * providing alternative navigation when the door interface isn't visible.
+ *
+ * @param {Object} props - Component props
+ * @param {string} props.href - The destination URL
+ * @param {StaticImageData} props.imageSrc - The image to display for the link
+ * @param {string} props.alt - Alt text for the image
+ * @returns {JSX.Element} - Mobile navigation link
+ */
 const MobileLink = ({ href, imageSrc, alt }) => (
 	<Link
 		href={href}
@@ -146,14 +196,27 @@ const MobileLink = ({ href, imageSrc, alt }) => (
 	</Link>
 )
 
+/**
+ * HomeParent Component
+ *
+ * @description The main exported component that creates a responsive landing page.
+ * It uses the useResponsiveState hook to determine the current device type/orientation
+ * and renders appropriate layouts. Features include:
+ * - Responsive background based on device size/orientation
+ * - Animated CrazyLabsSignage
+ * - Five interactive Door components for different application sections
+ * - Interactive door open and connect wallet prompts
+ * - Mobile navigation links for smaller devices
+ *
+ * @returns {JSX.Element} - The complete HomeParent component
+ */
 export default function HomeParent() {
+	// Get responsive state to determine device type and orientation
 	const {
-		isMobile,
 		isTablet,
 		isDesktop,
 		isLargeDesktop,
 		isLandscape,
-		isPortrait,
 	} = useResponsiveState()
 	return (
 		<div
@@ -179,6 +242,7 @@ export default function HomeParent() {
 							h.imageComponentsWrapperCon
 						)}
 					>
+						{/* Responsive background image selection based on device and orientation */}
 						<Image
 							src={
 								isLargeDesktop
@@ -193,6 +257,7 @@ export default function HomeParent() {
 							className={cf(s.wMax, s.hMax, s.flex, h.bg)}
 							priority
 						/>
+						{/* Animated flickering signage */}
 						<CrazyLabsSignage />
 						<div
 							className={cf(
@@ -218,6 +283,7 @@ export default function HomeParent() {
 								alt={`image prompting the user to connect wallet`}
 								className={cf(h.connectWallet)}
 							/>
+							{/* Door components for navigation to different sections */}
 							<Door
 								label={'Raffles'}
 								signage={raffles}
@@ -267,6 +333,7 @@ export default function HomeParent() {
 					</div>
 				</div>
 			</div>
+			{/* Mobile navigation links displayed on smaller screens and touch devices */}
 			<div
 				className={cf(
 					s.wMax,

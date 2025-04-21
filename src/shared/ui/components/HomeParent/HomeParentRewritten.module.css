@@ -1,3 +1,12 @@
+/**
+ * HomeParentRewritten.module.css
+ * 
+ * A comprehensive responsive styling system for the HomeParent component.
+ * Uses a mobile-first approach with breakpoints for multiple device sizes and orientations.
+ * Implements interactive elements, animations, and conditional visibility based on device capabilities.
+ */
+
+/* Root component styling with CSS variables for responsive adaptation */
 .homeParent {
 	width: 100%;
 	position: relative;
@@ -7,15 +16,18 @@
 	--offset: 0px;
 }
 
+/* Set minimum height to take up available viewport space */
 .homeParent {
 	min-height: calc(100vh - var(--offset));
 	min-height: calc(100vh - 94px);
 }
 
+/* Position the image components parent relative to the offset */
 .imageComponentsParent {
 	top: calc(var(--offset) * -1);
 }
 
+/* Full-width container for all image components, centered horizontally */
 .imageComponentsParent {
 	width: 100%;
 	min-height: inherit;
@@ -25,6 +37,7 @@
 	transform: translateX(-50%);
 }
 
+/* Wrapper for image components that maintains aspect ratio and handles scaling */
 .imageComponentsWrapper {
 	width: 100%;
 	position: relative;
@@ -34,6 +47,7 @@
 	transform: scale(1) translateY(0);
 }
 
+/* Inner container that holds the actual content at a specific width */
 .imageComponentsWrapperCon {
 	width: var(--bg-width);
 	position: absolute;
@@ -43,10 +57,12 @@
 	z-index: 1;
 }
 
+/* Clone container has higher z-index for overlay effects */
 .imageComponentsWrapperConClone.imageComponentsWrapperCon {
 	z-index: 2;
 }
 
+/* Background image styling with responsive width and aspect ratio */
 .bg {
 	width: var(--bg-width);
 	aspect-ratio: 428 / 892; /* Mobile aspect ratio */
@@ -56,6 +72,7 @@
 	z-index: 1;
 }
 
+/* Parent container for the Crazy Labs Signage */
 .cLSParent {
 	position: absolute;
 	top: 60px;
@@ -68,6 +85,7 @@
 	height: auto;
 }
 
+/* Original signage element (visible initially) */
 .cLSParentOriginal {
 	position: absolute;
 	top: 0px;
@@ -79,6 +97,7 @@
 	opacity: 1;
 }
 
+/* Clone signage element (hidden initially, appears during animation) */
 .cLSParentClone {
 	position: absolute;
 	top: 0px;
@@ -91,6 +110,7 @@
 	opacity: 0;
 }
 
+/* Crazy Labs Logo styling */
 .crazyLabsLogo {
 	height: 48px; /* Smaller for mobile */
 	aspect-ratio: 142 / 123;
@@ -100,6 +120,7 @@
 	transform: translateX(calc(50% + 7.5px)) translateY(0px);
 }
 
+/* Container and flicker element for the signage animation */
 .flickerCon,
 .flicker {
 	width: calc(var(--cls-width) + 3px);
@@ -110,6 +131,7 @@
 	height: auto;
 }
 
+/* Flicker container with transition for smooth effect changes */
 .flickerCon {
 	position: relative;
 	background-position: center;
@@ -118,6 +140,7 @@
 	transition: all 0.15s linear;
 }
 
+/* Different flicker states with corresponding background images */
 .flickerSignage_1 {
 	background-image: url('../../../../../public/images/crazyLabsSign-1.png');
 }
@@ -143,6 +166,7 @@
 	background-image: url('../../../../../public/images/crazyLabsSign-4.png');
 }
 
+/* Broken S element positioned relative to the signage */
 .brokenS {
 	position: absolute;
 	transform: translateY(calc(100% - 15px));
@@ -152,6 +176,7 @@
 	width: auto;
 }
 
+/* Parent container for all door signage elements */
 .signageParent {
 	top: 0;
 	z-index: 3;
@@ -163,24 +188,28 @@
 	visibility: hidden;
 }
 
-/* Modified hover for touch devices */
+/* Hover effect for door elements - overlay becomes visible */
 .door:hover .overlay {
 	opacity: 1;
 }
 
+/* Default state for overlay (invisible until hover) */
 .overlay {
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
 }
 
+/* Position for Raffles door element */
 .rafflesParent {
 	transform: translateY(20px) translateX(-150px);
 }
 
+/* Position for Cops Only door element */
 .copsOnlyParent {
 	transform: translateY(20px) translateX(150px);
 }
 
+/* Sizing for Raffles and Cops Only overlays */
 .rafflesOverlay,
 .copsOnlyOverlay {
 	width: auto;
@@ -188,6 +217,7 @@
 	height: 300px; /* Smaller for mobile */
 }
 
+/* Sizing and positioning for Raffles and Cops Only signage */
 .rafflesSignage,
 .copsOnlySignage {
 	height: 30px; /* Smaller for mobile */
@@ -196,24 +226,29 @@
 	top: 15px;
 }
 
+/* Specific rotation for Raffles signage */
 .rafflesSignage {
 	transform: rotate(3deg) translateX(5px);
 	top: 20px;
 }
 
+/* Specific rotation for Cops Only signage */
 .copsOnlySignage {
 	transform: rotate(-3deg) translateX(-5px);
 	top: 20px;
 }
 
+/* Position for Loot door element */
 .lootParent {
 	transform: translateY(15px) translateX(-100px);
 }
 
+/* Position for Staking door element */
 .stakingParent {
 	transform: translateY(15px) translateX(100px);
 }
 
+/* Sizing for Loot and Staking overlays */
 .lootOverlay,
 .stakingOverlay {
 	height: 200px; /* Smaller for mobile */
@@ -221,6 +256,7 @@
 	width: auto;
 }
 
+/* Sizing and positioning for Loot and Staking signage */
 .lootSignage,
 .stakingSignage {
 	height: 25px; /* Smaller for mobile */
@@ -229,26 +265,31 @@
 	top: 10px;
 }
 
+/* Specific rotation for Loot signage */
 .lootSignage {
 	transform: rotate(3deg) translateX(4px);
 	top: 12px;
 }
 
+/* Specific rotation for Staking signage */
 .stakingSignage {
 	transform: rotate(-3deg) translateX(-2px);
 	top: 12px;
 }
 
+/* Position for Arcade Lab door element */
 .arcadeLabParent {
 	transform: translateY(10px) translateX(1px);
 }
 
+/* Sizing for Arcade Lab overlay */
 .arcadeLabOverlay {
 	height: 100px; /* Smaller for mobile */
 	aspect-ratio: auto;
 	width: auto;
 }
 
+/* Sizing and positioning for Arcade Lab signage */
 .arcadeLabSignage {
 	height: 10px; /* Smaller for mobile */
 	aspect-ratio: 92 / 14;
@@ -256,10 +297,12 @@
 	top: -7px;
 }
 
+/* Parent container for content elements */
 .contentParent {
 	position: relative;
 }
 
+/* Door Open image with delayed hover effect */
 .doorOpen {
 	width: 120px; /* Smaller for mobile */
 	aspect-ratio: 184 / 122;
@@ -271,10 +314,12 @@
 	transition: opacity 0.5s ease-in-out 2s;
 }
 
+/* Hover effect for Door Open image */
 .doorOpen:hover {
 	opacity: 1;
 }
 
+/* Connect Wallet image with delayed hover effect */
 .connectWallet {
 	width: 150px; /* Smaller for mobile */
 	aspect-ratio: 196 / 107;
@@ -286,10 +331,12 @@
 	transition: opacity 0.5s ease-in-out 2s;
 }
 
+/* Hover effect for Connect Wallet image */
 .connectWallet:hover {
 	opacity: 1;
 }
 
+/* Animation for image components wrapper scaling and positioning */
 @keyframes imageComponentsWrapperFrames {
 	0% {
 		transform: scale(0.9) translateY(-80px);
@@ -302,6 +349,7 @@
 	}
 }
 
+/* Animation for original signage fade-out effect */
 @keyframes imageComponentsWrapperConOriginalFrames {
 	0% {
 		opacity: 1;
@@ -317,6 +365,7 @@
 	}
 }
 
+/* Animation for clone signage fade-in effect */
 @keyframes imageComponentsWrapperConCloneFrames {
 	0% {
 		transform: scale(1.1) translateY(80px);
@@ -335,6 +384,7 @@
 	}
 }
 
+/* Mobile links parent container */
 .linksParent {
 	--offset-height: 60px;
 	position: relative;
@@ -344,15 +394,18 @@
 	visibility: visible;
 }
 
+/* Wrapper for mobile links with bottom padding */
 .linksWrapper {
 	padding-bottom: 90px;
 	/* gap: 15px; */
 }
 
+/* Individual mobile link positioning */
 .link {
 	position: relative;
 }
 
+/* Mobile link image sizing */
 .linkImg {
 	width: 250px;
 	aspect-ratio: 289 / 108;
@@ -502,12 +555,13 @@
 	}
 }
 
-/* Samsung Galaxy S8+ landscape */
+/* Samsung Galaxy S8+ landscape - Special case for this device's aspect ratio */
 @media only screen and (min-width: 740px) and (max-width: 834px) and (orientation: landscape) {
 	.homeParent {
 		--offset: 0;
 	}
 
+	/* Adjust aspect ratio for landscape orientation */
 	.imageComponentsWrapper,
 	.imageComponentsWrapperCon,
 	.bg,
@@ -535,10 +589,12 @@
 		transform: translateX(calc(50% + 10px)) translateY(0px);
 	}
 
+	/* Hide door navigation in landscape mode on this device */
 	.door {
 		display: none;
 	}
 
+	/* Adjust link parent height for landscape mode */
 	.linksParent {
 		--offset-height: 58px;
 		height: calc(100vh + calc(var(--offset-height) * 2));
@@ -566,6 +622,7 @@
 		--offset: 88px;
 	}
 
+	/* Force scale transform to be consistent */
 	.imageComponentsWrapper {
 		transform: scale(1) translateY(0) !important;
 	}
@@ -589,7 +646,7 @@
 	}
 }
 
-/* iPad Mini landscape */
+/* iPad Mini landscape - Special case for this device */
 @media only screen and (min-width: 835px) and (max-width: 1024px) and (orientation: landscape) {
 	.homeParent {
 		min-height: calc(100vh - 80px);
@@ -598,6 +655,7 @@
 		--offset: 0px;
 	}
 
+	/* Specific aspect ratio for iPad Mini landscape */
 	.imageComponentsWrapper,
 	.imageComponentsWrapperCon,
 	.bg,
@@ -624,17 +682,19 @@
 		transform: translateX(calc(50% + 15px)) translateY(0px);
 	}
 
+	/* Hide door navigation in landscape mode */
 	.door {
 		display: none;
 	}
 
+	/* Adjust link parent size */
 	.linksParent {
 		--offset-height: 80px;
 		height: calc(100vh - calc(var(--offset-height) * 1));
 	}
 }
 
-/* Desktops and larger tablets */
+/* Desktops and larger tablets - Full desktop experience */
 @media only screen and (min-width: 1025px) {
 	.homeParent {
 		min-height: calc(100vh);
@@ -642,6 +702,7 @@
 		--offset: 86px;
 	}
 
+	/* Desktop aspect ratio */
 	.imageComponentsWrapper,
 	.imageComponentsWrapperCon,
 	.bg,
@@ -649,10 +710,12 @@
 		aspect-ratio: 1733 / 1117;
 	}
 
+	/* Show signage on desktop */
 	.signageParent {
 		visibility: visible;
 	}
 
+	/* Apply entrance animation for desktop */
 	.imageComponentsWrapper {
 		transform: scale(0.9) translateY(-80px);
 		animation: imageComponentsWrapperFrames 3s linear 5s forwards;
@@ -678,6 +741,7 @@
 		transform: translateX(calc(50% + 27px)) translateY(0px);
 	}
 
+	/* Apply animations for signage elements */
 	.cLSParentOriginal {
 		animation: imageComponentsWrapperConOriginalFrames 3s linear 5s forwards;
 	}
@@ -686,7 +750,7 @@
 		animation: imageComponentsWrapperConCloneFrames 3s linear 5s forwards;
 	}
 
-	/* Desktop-specific positioning */
+	/* Desktop-specific positioning for doors */
 	.rafflesParent {
 		transform: translateY(40px) translateX(-380px);
 	}
@@ -756,6 +820,7 @@
 		top: -10px;
 	}
 
+	/* Position interactive elements */
 	.doorOpen {
 		width: 166.3px;
 		transform: translateX(-675px) translateY(5px);
@@ -766,6 +831,7 @@
 		transform: translateX(707px) translateY(5px);
 	}
 
+	/* Hide mobile navigation on desktop */
 	.linksParent {
 		visibility: hidden;
 	}
@@ -773,14 +839,17 @@
 
 /* Special cases for specific hover support */
 @media (hover: hover) {
+	/* Show signage on devices with hover capability */
 	.signageParent {
 		visibility: visible;
 	}
 
+	/* Enable hover effects for doors */
 	.door:hover .overlay {
 		opacity: 1;
 	}
 
+	/* Add pointer cursor to interactive elements */
 	.doorOpen,
 	.connectWallet {
 		cursor: pointer;
@@ -794,18 +863,20 @@
 		opacity: 1;
 	}
 
+	/* Hide mobile navigation on hover-capable devices */
 	.linksParent {
 		visibility: hidden;
 	}
 }
 
-/* For touch devices */
+/* For touch devices - different interaction model */
 @media (hover: none) {
-	/* Add touch-specific interactions if needed */
+	/* Hide signage on touch-only devices */
 	.signageParent {
 		visibility: hidden;
 	}
 
+	/* Use active state instead of hover for touch devices */
 	.door:active .overlay {
 		opacity: 1;
 	}
@@ -818,6 +889,7 @@
 		opacity: 1;
 	}
 
+	/* Show mobile navigation on touch-only devices */
 	.linksParent {
 		visibility: visible;
 	}
