@@ -10,7 +10,6 @@
 
 'use client'
 
-import { useResponsiveState } from '@/shared/hooks';
 import { Shared as s } from '@/shared/styles';
 import { cf } from '@/shared/utils';
 import Image from 'next/image';
@@ -211,13 +210,6 @@ const MobileLink = ({ href, imageSrc, alt }) => (
  * @returns {JSX.Element} - The complete HomeParent component
  */
 export default function HomeParent() {
-	// Get responsive state to determine device type and orientation
-	const {
-		isTablet,
-		isDesktop,
-		isLargeDesktop,
-		isLandscape,
-	} = useResponsiveState()
 	return (
 		<div
 			className={cf(h.homeParent)}
@@ -244,17 +236,41 @@ export default function HomeParent() {
 					>
 						{/* Responsive background image selection based on device and orientation */}
 						<Image
-							src={
-								isLargeDesktop
-									? homeBG
-									: isTablet || isDesktop
-									? isLandscape
-										? homeBGiPadMiniHorizontal
-										: homeBGiPadMiniVertical
-									: homeBGiPhone14Vertical
-							}
+							src={homeBG}
 							alt={'Collection Banner'}
-							className={cf(s.wMax, s.hMax, s.flex, h.bg)}
+							className={cf(s.wMax, s.hMax, s.flex, h.bg, h.isLargeDesktop)}
+							priority
+						/>
+						<Image
+							src={homeBGiPadMiniHorizontal}
+							alt={'Collection Banner'}
+							className={cf(
+								s.wMax,
+								s.hMax,
+								s.flex,
+								h.bg,
+								h.isTabletOrDesktop,
+								h.isLandscape
+							)}
+							priority
+						/>
+						<Image
+							src={homeBGiPadMiniVertical}
+							alt={'Collection Banner'}
+							className={cf(
+								s.wMax,
+								s.hMax,
+								s.flex,
+								h.bg,
+								h.isTabletOrDesktop,
+								h.isPortrait
+							)}
+							priority
+						/>
+						<Image
+							src={homeBGiPhone14Vertical}
+							alt={'Collection Banner'}
+							className={cf(s.wMax, s.hMax, s.flex, h.bg, h.isMobile)}
 							priority
 						/>
 						{/* Animated flickering signage */}

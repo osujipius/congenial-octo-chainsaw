@@ -72,6 +72,11 @@
 	z-index: 1;
 }
 
+.isLargeDesktop,
+.isTabletOrDesktop{
+	display: none;
+}
+
 /* Parent container for the Crazy Labs Signage */
 .cLSParent {
 	position: absolute;
@@ -474,6 +479,18 @@
 		aspect-ratio: 744 / 1107;
 	}
 
+	.isTabletOrDesktop.isPortrait {
+		display: inline-block;
+	}
+	
+	.isTabletOrDesktop.isLandscape {
+		display: none;
+	}
+
+	.isMobile {
+		display: none;
+	}
+
 	.cLSParent {
 		--cls-width: 400px;
 		top: 107px;
@@ -567,6 +584,18 @@
 	.bg,
 	.signageParent {
 		aspect-ratio: 1728 / 1113;
+	}
+
+	.isTabletOrDesktop.isPortrait {
+		display: none;
+	}
+
+	.isTabletOrDesktop.isLandscape {
+		display: inline-block;
+	}
+
+	.isMobile {
+		display: none;
 	}
 
 	.cLSParent {
@@ -663,7 +692,19 @@
 		aspect-ratio: 1133 / 730;
 		transform: scale(1) translateY(0px) !important;
 	}
+	
+	.isTabletOrDesktop.isPortrait {
+		display: none;
+	}
 
+	.isTabletOrDesktop.isLandscape {
+		display: inline-block;
+	}
+
+	.isMobile {
+		display: none;
+	}
+	
 	.cLSParent {
 		--cls-width: 605px;
 		transform: translateX(calc(-50% - 12px));
@@ -708,6 +749,14 @@
 	.bg,
 	.signageParent {
 		aspect-ratio: 1733 / 1117;
+	}
+
+	.isLargeDesktop {
+		display: inline-block;
+	}
+
+	.isMobile, .isTabletOrDesktop {
+		display: none !important;
 	}
 
 	/* Show signage on desktop */
