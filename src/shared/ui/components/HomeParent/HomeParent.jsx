@@ -10,34 +10,35 @@
 
 'use client'
 
-import { Shared as s } from '@/shared/styles';
-import { cf } from '@/shared/utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import arcadeLab from '../../../../../public/images/center-door-label.png';
-import homeBG from '../../../../../public/images/homeBG.png';
-import homeBGiPadMiniHorizontal from '../../../../../public/images/homeBGiPadMiniHorizontal.png';
-import homeBGiPadMiniVertical from '../../../../../public/images/homeBGiPadMiniVertical.png';
-import homeBGiPhone14Vertical from '../../../../../public/images/homeBGiPhone14Vertical.png';
-import raffles from '../../../../../public/images/left-door-label-1.png';
-import loot from '../../../../../public/images/left-door-label-2.png';
-import copsOnly from '../../../../../public/images/right-door-label-1.png';
-import staking from '../../../../../public/images/right-door-label-2.png';
-import arcadeLabHover from '../../../../../public/svg/arcadeLabOverlay.svg';
-import brokenS from '../../../../../public/svg/brokenS.svg';
-import collectionLink from '../../../../../public/svg/collectionLink.svg';
-import connectWallet from '../../../../../public/svg/connectWallet.svg';
-import copsOnlyHover from '../../../../../public/svg/copsOnlyOverlay.svg';
-import crazyLabsLogo from '../../../../../public/svg/crazyLabsLogo.svg';
-import doorOpen from '../../../../../public/svg/doorOpen.svg';
-import lootHover from '../../../../../public/svg/lootOverlay.svg';
-import missionsLink from '../../../../../public/svg/missionsLink.svg';
-import rafflesLink from '../../../../../public/svg/rafflesLink.svg';
-import rafflesHover from '../../../../../public/svg/rafflesOverlay.svg';
-import stakingLink from '../../../../../public/svg/stakingLink.svg';
-import stakingHover from '../../../../../public/svg/stakingOverlay.svg';
-import h from './HomeParentRewritten.module.css';
+import { Shared as s } from '@/shared/styles'
+import { cf } from '@/shared/utils'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import arcadeLab from '../../../../../public/images/center-door-label.png'
+import homeBG from '../../../../../public/images/homeBG.png'
+import homeBGiPadMiniHorizontal from '../../../../../public/images/homeBGiPadMiniHorizontal.png'
+import homeBGiPadMiniVertical from '../../../../../public/images/homeBGiPadMiniVertical.png'
+import homeBGiPhone14Vertical from '../../../../../public/images/homeBGiPhone14Vertical.png'
+import raffles from '../../../../../public/images/left-door-label-1.png'
+import loot from '../../../../../public/images/left-door-label-2.png'
+import copsOnly from '../../../../../public/images/right-door-label-1.png'
+import staking from '../../../../../public/images/right-door-label-2.png'
+import arcadeLabHover from '../../../../../public/svg/arcadeLabOverlay.svg'
+import brokenS from '../../../../../public/svg/brokenS.svg'
+import collectionLink from '../../../../../public/svg/collectionLink.svg'
+import connectWallet from '../../../../../public/svg/connectWallet.svg'
+import copsOnlyHover from '../../../../../public/svg/copsOnlyOverlay.svg'
+import crazyLabsLogo from '../../../../../public/svg/crazyLabsLogo.svg'
+import doorOpen from '../../../../../public/svg/doorOpen.svg'
+import lootHover from '../../../../../public/svg/lootOverlay.svg'
+import missionsLink from '../../../../../public/svg/missionsLink.svg'
+import rafflesLink from '../../../../../public/svg/rafflesLink.svg'
+import rafflesHover from '../../../../../public/svg/rafflesOverlay.svg'
+import stakingLink from '../../../../../public/svg/stakingLink.svg'
+import stakingHover from '../../../../../public/svg/stakingOverlay.svg'
+// import h from './HomeParentRewritten.module.css';
+import h from './HomeParentExperimental.module.css'
 
 /**
  * Door Component
@@ -210,6 +211,52 @@ const MobileLink = ({ href, imageSrc, alt }) => (
  * @returns {JSX.Element} - The complete HomeParent component
  */
 export default function HomeParent() {
+	const isMobileEl = useRef(null)
+	const isTabletPortraitEl = useRef(null)
+	const isTabletLandscapeEl = useRef(null)
+	const isLargeDesktopEl = useRef(null)
+
+	//   JavaScript Fallback - Optional Enhancement
+	//   For even more robust handling, consider adding this JavaScript to your component:
+	useEffect(() => {
+		const ensureDisplayClass = () => {
+			// Check if all display classes are hidden
+			if (
+				isMobileEl.current &&
+				isTabletPortraitEl.current &&
+				isTabletLandscapeEl.current &&
+				isLargeDesktopEl.current &&
+				window.getComputedStyle(isMobileEl.current).display === 'none' &&
+				window.getComputedStyle(isTabletPortraitEl.current).display === 'none' &&
+				window.getComputedStyle(isTabletLandscapeEl.current).display === 'none' &&
+				window.getComputedStyle(isLargeDesktopEl.current).display === 'none'
+			) {
+				// Determine which to show based on current viewport
+				if (window.innerWidth >= 1025) {
+					isLargeDesktopEl.current.style.display = 'inline-block'
+				} else if (
+					window.innerWidth >= 481 &&
+					window.innerWidth <= 1024 &&
+					window.innerHeight < window.innerWidth
+				) {
+					isTabletLandscapeEl.current.style.display = 'inline-block'
+				} else if (window.innerWidth >= 481) {
+					isTabletPortraitEl.current.style.display = 'inline-block'
+				} else {
+					isMobileEl.current.style.display = 'inline-block'
+				}
+			}
+		}
+
+		// Check on initial render and on resize
+		ensureDisplayClass()
+		window.addEventListener('resize', ensureDisplayClass)
+
+		return () => {
+			window.removeEventListener('resize', ensureDisplayClass)
+		}
+	}, [])
+
 	return (
 		<div
 			className={cf(h.homeParent)}
@@ -235,43 +282,34 @@ export default function HomeParent() {
 						)}
 					>
 						{/* Responsive background image selection based on device and orientation */}
-						<Image
-							src={homeBG}
-							alt={'Collection Banner'}
-							className={cf(s.wMax, s.hMax, s.flex, h.bg, h.isLargeDesktop)}
-							priority
-						/>
-						<Image
-							src={homeBGiPadMiniHorizontal}
-							alt={'Collection Banner'}
-							className={cf(
-								s.wMax,
-								s.hMax,
-								s.flex,
-								h.bg,
-								h.isTabletOrDesktop,
-								h.isLandscape
-							)}
-							priority
-						/>
-						<Image
-							src={homeBGiPadMiniVertical}
-							alt={'Collection Banner'}
-							className={cf(
-								s.wMax,
-								s.hMax,
-								s.flex,
-								h.bg,
-								h.isTabletOrDesktop,
-								h.isPortrait
-							)}
-							priority
-						/>
+
 						<Image
 							src={homeBGiPhone14Vertical}
 							alt={'Collection Banner'}
 							className={cf(s.wMax, s.hMax, s.flex, h.bg, h.isMobile)}
 							priority
+							ref={isMobileEl}
+						/>
+						<Image
+							src={homeBGiPadMiniVertical}
+							alt={'Collection Banner'}
+							className={cf(h.bg, h.isTabletOrDesktop, h.isPortrait)}
+							priority
+							ref={isTabletPortraitEl}
+						/>
+						<Image
+							src={homeBGiPadMiniHorizontal}
+							alt={'Collection Banner'}
+							className={cf(h.bg, h.isTabletOrDesktop, h.isLandscape)}
+							priority
+							ref={isTabletLandscapeEl}
+						/>
+						<Image
+							src={homeBG}
+							alt={'Collection Banner'}
+							className={cf(s.wMax, s.hMax, s.flex, h.bg, h.isLargeDesktop)}
+							priority
+							ref={isLargeDesktopEl}
 						/>
 						{/* Animated flickering signage */}
 						<CrazyLabsSignage />
