@@ -1,0 +1,130 @@
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* 
+ * Mobile-first approach - default styles are for small devices,
+ * then we add complexity as screens get larger
+ */
+
+/* Extra small devices (phones, 320px and up) */
+/* This is the base styling - no media query required */
+
+/* Small devices (large phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+  /* CSS rules for small devices go here */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* CSS rules for tablets go here */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* CSS rules for desktops go here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  /* CSS rules for large desktops go here */
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media only screen and (min-width: 1400px) {
+  /* CSS rules for extra-large desktops go here */
+}
+
+
+/* ========== DEVICE-SPECIFIC QUERIES ========== */
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 575px) {
+  /* CSS rules for portrait phones go here */
+}
+
+/* Smartphones (landscape) */
+@media only screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape) {
+  /* CSS rules for landscape phones go here */
+}
+
+/* iPads, Tablets (portrait) */
+@media only screen and (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+  /* CSS rules for portrait tablets go here */
+}
+
+/* iPads, Tablets (landscape) */
+@media only screen and (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  /* CSS rules for landscape tablets go here */
+}
+
+
+/* ========== HOVER CAPABILITY ========== */
+
+/* Applies only to devices that can hover (typically desktop devices with a mouse) */
+@media (hover: hover) {
+  /* CSS rules for devices that can hover go here */
+}
+
+/* Applies only to devices that cannot hover (typically touchscreens) */
+@media (hover: none) {
+  /* CSS rules for devices that cannot hover go here */
+}
+
+
+/* ========== DEVICE PIXEL RATIO (FOR HIGH DENSITY DISPLAYS) ========== */
+
+/* Standard resolution displays */
+@media screen and (max-resolution: 1dppx) {
+  /* CSS rules for standard resolution displays go here */
+}
+
+/* Retina displays (2x pixel density) */
+@media screen and (min-resolution: 2dppx) {
+  /* CSS rules for retina displays go here */
+}
+
+/* Super high-resolution displays (3x pixel density - iPhone Plus/Pro models) */
+@media screen and (min-resolution: 3dppx) {
+  /* CSS rules for super high-resolution displays go here */
+}
+
+
+/* ========== PRINT MEDIA QUERIES ========== */
+
+/* Applied when the page is being printed */
+@media print {
+  /* CSS rules for print layout go here */
+}
+
+
+/* ========== PREFERS-REDUCED-MOTION ========== */
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  /* CSS rules to reduce or eliminate animations go here */
+}
+
+
+/* ========== DARK MODE PREFERENCES ========== */
+
+/* Styles for users who prefer dark color schemes */
+@media (prefers-color-scheme: dark) {
+  /* CSS rules for dark mode go here */
+}
+
+/* Styles for users who prefer light color schemes */
+@media (prefers-color-scheme: light) {
+  /* CSS rules for light mode go here */
+}
+
+
+/* ========== COMBINED QUERIES (EXAMPLES) ========== */
+
+/* Large desktop with hover capability */
+@media only screen and (min-width: 1200px) and (hover: hover) {
+  /* CSS rules for desktops with hover capability go here */
+}
+
+/* Touch-based tablets in landscape orientation */
+@media only screen and (min-width: 768px) and (max-width: 991px) and (orientation: landscape) and (hover: none) {
+  /* CSS rules for touch tablets in landscape orientation go here */
+}

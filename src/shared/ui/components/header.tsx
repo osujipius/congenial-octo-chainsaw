@@ -24,6 +24,7 @@ const navLinks_2 = [
 export default function CHeader({}: Props) {
   return (
     <HStack
+      zIndex={100}
       position="relative"
       width="full"
       height={["64px", null, "80px"]}
@@ -38,7 +39,7 @@ export default function CHeader({}: Props) {
         position: "absolute",
         left: 0,
         top: 0,
-        width: ["100px", null, "1015px"],
+        width: ["100px", null, "500px", null, "811px"],
         height: "full",
         backgroundImage: "url('/images/header-left.png')",
         backgroundSize: "cover",
