@@ -560,12 +560,29 @@
 
 /* Fix for devices between 0 and 740px in landscape orientation */
 @media only screen and (max-width: 739px) and (orientation: landscape) {
+    .homeParent {
+		/* --bg-width: 769px; */
+		--offset: 0;
+	}
+
 	.isTabletOrDesktop.isPortrait {
 		display: none;
 	}
 
 	.isTabletOrDesktop.isLandscape {
 		display: inline-block;
+	}
+
+    .cLSParent {
+		--cls-width: 300px;
+		top: 75px;
+		transform: translateX(calc(-50% - 9px));
+		z-index: 2;                                                                                                                                                                                                                                                                  
+	}
+
+    .crazyLabsLogo {
+		height: 55px;
+		transform: translateX(calc(50% + 9px)) translateY(0px);
 	}
 
 	.imageComponentsWrapper,
@@ -576,7 +593,7 @@
 	}
 
 	.linksParent {
-		aspect-ratio: 1728 / 900;
+		aspect-ratio: 1728 / 1100;
 	}
 }
 
@@ -605,6 +622,32 @@
 		aspect-ratio: 60.796 / 64.895;
 		height: auto;
 		right: 19.5px;
+	}
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+	.homeParent {
+		--bg-width: 769px;
+		--offset: 0px;
+	}
+
+	.linksParent {
+		aspect-ratio: 1728 / 1090;
+	}
+
+	.cLSParent {
+		--cls-width: 400px;
+		top: 97px;
+	}
+
+	.crazyLabsLogo {
+		height: 65px;
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 22px));
+		width: 48px;
+		right: 17px;
 	}
 }
 
@@ -666,7 +709,8 @@
 	.cLSParent {
 		--cls-width: 415px;
 		transform: translateX(calc(-50% - 6px));
-		top: 108px;
+		top: 105px;
+        /* top: 108px; */
 		z-index: 2;
 	}
 
