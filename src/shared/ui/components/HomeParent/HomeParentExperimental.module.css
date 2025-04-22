@@ -585,6 +585,14 @@
 		transform: translateX(calc(50% + 9px)) translateY(0px);
 	}
 
+	.brokenS {
+		transform: translateY(calc(100% - 18px));
+		width: 36px;
+		aspect-ratio: 60.796 / 64.895;
+		height: auto;
+		right: 10px;
+	}
+
 	.imageComponentsWrapper,
 	.imageComponentsWrapperCon,
 	.bg,

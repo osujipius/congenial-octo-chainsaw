@@ -37,7 +37,6 @@ import rafflesLink from '../../../../../public/svg/rafflesLink.svg'
 import rafflesHover from '../../../../../public/svg/rafflesOverlay.svg'
 import stakingLink from '../../../../../public/svg/stakingLink.svg'
 import stakingHover from '../../../../../public/svg/stakingOverlay.svg'
-// import h from './HomeParentRewritten.module.css';
 import h from './HomeParentExperimental.module.css'
 
 /**
