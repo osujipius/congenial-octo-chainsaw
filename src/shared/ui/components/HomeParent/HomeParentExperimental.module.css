@@ -4,6 +4,18 @@
  * A comprehensive responsive styling system for the HomeParent component.
  * Uses a mobile-first approach with breakpoints for multiple device sizes and orientations.
  * Implements interactive elements, animations, and conditional visibility based on device capabilities.
+ * 
+ * DISPLAY CLASS VISIBILITY STRATEGY:
+ * 
+ * This CSS uses 4 display classes to control which background is shown:
+ * - .isMobile - For small mobile devices
+ * - .isTabletOrDesktop.isPortrait - For tablets/small desktops in portrait mode
+ * - .isTabletOrDesktop.isLandscape - For tablets/small desktops in landscape mode 
+ * - .isLargeDesktop - For large desktop screens
+ * 
+ * We use a "default visible" approach for all display classes with explicit hiding.
+ * This ensures we'll always have at least one visible display element in any combination
+ * of screen sizes and orientations.
  */
 
 /* Root component styling with CSS variables for responsive adaptation */
@@ -72,14 +84,21 @@
 	z-index: 1;
 }
 
-.isMobile {
-	display: inline-block;
-}
-
-.isLargeDesktop,
+/**
+ * DISPLAY CLASSES - Default Visible Strategy
+ * 
+ * By default, all display mode classes start as visible.
+ * Media queries will explicitly HIDE classes that shouldn't show,
+ * rather than explicitly showing them.
+ * 
+ * This default-visible approach ensures we'll never have a state where
+ * all display classes are accidentally hidden at once.
+ */
+.isMobile,
 .isTabletOrDesktop.isPortrait,
-.isTabletOrDesktop.isLandscape {
-	display: none;
+.isTabletOrDesktop.isLandscape,
+.isLargeDesktop {
+	display: inline-block; /* DEFAULT: All display classes visible */
 }
 
 /* Parent container for the Crazy Labs Signage */
@@ -423,6 +442,25 @@
 
 /* --------------------------- Media Queries (Mobile-First) ------------------------- */
 
+/**
+ * DISPLAY CLASS VISIBILITY - Mobile First Breakpoints
+ * 
+ * These breakpoints follow a clear pattern:
+ * 1. For small mobile devices (0-480px): ONLY .isMobile is visible
+ * 2. For tablets/larger phones in portrait (481px+): ONLY .isTabletOrDesktop.isPortrait is visible
+ * 3. For tablets in landscape: ONLY .isTabletOrDesktop.isLandscape is visible
+ * 4. For large desktops (1025px+): ONLY .isLargeDesktop is visible
+ * 
+ * Each breakpoint explicitly HIDES all classes except the one that should be visible.
+ */
+
+/* Base rules (0-480px): Only mobile visible, hide others */
+.isTabletOrDesktop.isPortrait,
+.isTabletOrDesktop.isLandscape,
+.isLargeDesktop {
+	display: none;
+}
+
 /* Super Tiny device (base styling above is for 360px and below) */
 /* Styles for phones slightly larger than the smallest */
 @media only screen and (min-width: 361px) {
@@ -520,10 +558,31 @@
 	}
 }
 
-/* Fix for devices between 481px and 740px in landscape orientation */
-@media only screen and (min-width: 481px) and (max-width: 739px) and (orientation: landscape) {
-	.homeParent {
-		--offset: 0 !important;
+/* Fix for devices between 0 and 740px in landscape orientation */
+@media only screen and (max-width: 739px) and (orientation: landscape) {
+    .homeParent {
+		/* --bg-width: 769px; */
+		--offset: 0;
+	}
+
+	.isTabletOrDesktop.isPortrait {
+		display: none;
+	}
+
+	.isTabletOrDesktop.isLandscape {
+		display: inline-block;
+	}
+
+    .cLSParent {
+		--cls-width: 300px;
+		top: 75px;
+		transform: translateX(calc(-50% - 9px));
+		z-index: 2;                                                                                                                                                                                                                                                                  
+	}
+
+    .crazyLabsLogo {
+		height: 55px;
+		transform: translateX(calc(50% + 9px)) translateY(0px);
 	}
 
 	.imageComponentsWrapper,
@@ -534,36 +593,7 @@
 	}
 
 	.linksParent {
-		aspect-ratio: 1728 / 980;
-	}
-
-	.isMobile, .isDesktop, .isLargeDesktop, .isTabletOrDesktop.isPortrait {
-		display: none;
-	}
-
-	.isTabletOrDesktop.isLandscape {
-		display: inline-block;
-	}
-
-	.cLSParent {
-		--cls-width: 290px;
-		transform: translateX(calc(-50% - 9px));
-		top: 77px;
-	}
-
-	.brokenS {
-		transform: translateY(calc(100% - 15px));
-		width: 31.796px;
-		right: 12.5px;
-	}
-
-	.crazyLabsLogo {
-		height: 53px;
-		transform: translateX(calc(50% + 10px)) translateY(0px);
-	}
-
-	.linksWrapper {
-		padding-bottom: 20px !important;
+		aspect-ratio: 1728 / 1100;
 	}
 }
 
@@ -592,6 +622,32 @@
 		aspect-ratio: 60.796 / 64.895;
 		height: auto;
 		right: 19.5px;
+	}
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+	.homeParent {
+		--bg-width: 769px;
+		--offset: 0px;
+	}
+
+	.linksParent {
+		aspect-ratio: 1728 / 1090;
+	}
+
+	.cLSParent {
+		--cls-width: 400px;
+		top: 97px;
+	}
+
+	.crazyLabsLogo {
+		height: 65px;
+	}
+
+	.brokenS {
+		transform: translateY(calc(100% - 22px));
+		width: 48px;
+		right: 17px;
 	}
 }
 
@@ -635,7 +691,7 @@
 	}
 
 	.linksParent {
-		aspect-ratio: 1728 / 1090;
+		aspect-ratio: 1728 / 1050;
 	}
 
 	.isTabletOrDesktop.isPortrait {
@@ -653,7 +709,8 @@
 	.cLSParent {
 		--cls-width: 415px;
 		transform: translateX(calc(-50% - 6px));
-		top: 95px;
+		top: 105px;
+        /* top: 108px; */
 		z-index: 2;
 	}
 
@@ -739,8 +796,7 @@
 		aspect-ratio: 1133 / 700;
 	}
 
-	.isMobile,
-	.isTabletOrDesktop.isPortrait {
+	.isMobile, .isTabletOrDesktop.isPortrait {
 		display: none;
 	}
 
@@ -810,8 +866,7 @@
 		aspect-ratio: 1133 / 630;
 	}
 
-	.isMobile,
-	.isTabletOrDesktop.isPortrait {
+	.isMobile, .isTabletOrDesktop.isPortrait {
 		display: none;
 	}
 
@@ -1026,6 +1081,11 @@
 	.connectWallet:hover {
 		opacity: 1;
 	}
+
+	/* Hide mobile navigation on hover-capable devices */
+	.linksParent {
+		visibility: hidden;
+	}
 }
 
 /* For touch devices - different interaction model */
@@ -1051,15 +1111,5 @@
 	/* Show mobile navigation on touch-only devices */
 	.linksParent {
 		visibility: visible;
-	}
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-	.isMobile, .isLargeDesktop, .isTabletOrDesktop.isPortrait {
-		display: none;
-	}
-
-	.isTabletOrDesktop.isLandscape {
-		display: inline-block;
 	}
 }
