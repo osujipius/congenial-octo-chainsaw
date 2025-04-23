@@ -39,7 +39,7 @@ export default function CHeader({}: Props) {
         position: "absolute",
         left: 0,
         top: 0,
-        width: ["100px", null, "500px", null, "811px"],
+        width: ["100px", null, "1015px"],
         height: "full",
         backgroundImage: "url('/images/header-left.png')",
         backgroundSize: "cover",
