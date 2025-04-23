@@ -24,7 +24,7 @@ const navLinks_2 = [
 export default function CHeader({}: Props) {
   return (
     <HStack
-      zIndex={100}
+      zIndex={2}
       position="relative"
       width="full"
       height={["64px", null, "80px"]}
@@ -33,6 +33,7 @@ export default function CHeader({}: Props) {
       borderBottom={["5px solid", null, "none"]}
       borderBottomColor="headerBottomBorder"
       overflowX="hidden"
+      background="white"
       _before={{
         content: '""',
         display: ["none", null, "block"],
